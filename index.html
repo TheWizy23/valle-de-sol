@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Valle del Sol - Granja Virtual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    
+    <!-- Barra Superior -->
+    <header id="top-bar">
+      <div class="stat-badge level-badge" id="level-container">
+        <span class="stat-icon">⭐</span>
+        <span class="stat-val" id="level-val">Niv. 1</span>
+        <div class="xp-bar-outer" title="Experiencia">
+          <div class="xp-bar-inner" id="xp-bar-fill"></div>
+        </div>
+      </div>
+
+      <div class="stat-group">
+        <div class="stat-badge coins-badge">
+          <span class="stat-icon">🪙</span>
+          <span class="stat-val" id="coins-val">50</span>
+        </div>
+
+        <div class="stat-badge rep-badge">
+          <span class="stat-icon">🏆</span>
+          <span class="stat-val" id="rep-val">0</span>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <button id="btn-sound" class="btn-icon" title="Sonido">🔊</button>
+        <button id="btn-reset" class="btn-icon" title="Reiniciar partida">🔄</button>
+      </div>
+    </header>
+
+    <!-- Barra de Herramientas y Semillas rápida -->
+    <section id="action-bar">
+      <div class="tool-selector">
+        <button class="tool-btn active" data-tool="water" title="Regadera (Acelera crecimiento)">
+          <span>🚿</span>
+          <small>Regar</small>
+        </button>
+      </div>
+
+      <div class="seed-selector" id="seed-selector">
+        <!-- Generado dinámicamente por JS -->
+      </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main id="main-content">
+      
+      <!-- Seccion 1: Granja -->
+      <section id="tab-farm" class="tab-content active">
+        <div class="farm-grid" id="farm-grid">
+          <!-- Parcelas generadas dinámicamente por JS -->
+        </div>
+      </section>
+
+      <!-- Seccion 2: Tienda de Semillas -->
+      <section id="tab-shop" class="tab-content">
+        <h2>🏪 Tienda de Semillas</h2>
+        <div class="card-grid" id="shop-grid"></div>
+      </section>
+
+      <!-- Seccion 3: Almacén y Mercado -->
+      <section id="tab-barn" class="tab-content">
+        <h2>📦 Almacén y Mercado</h2>
+        <p class="section-desc">Vende tus cosechas directamente por monedas.</p>
+        <div class="card-grid" id="barn-grid"></div>
+      </section>
+
+      <!-- Seccion 4: Clientes y Pedidos -->
+      <section id="tab-orders" class="tab-content">
+        <h2>📜 Pedidos del Valle</h2>
+        <p class="section-desc">Cumple pedidos especiales para obtener más monedas y reputación.</p>
+        <div class="card-grid" id="orders-grid"></div>
+      </section>
+
+      <!-- Seccion 5: Mejoras -->
+      <section id="tab-upgrades" class="tab-content">
+        <h2>🛠️ Mejoras de la Granja</h2>
+        <div class="card-grid" id="upgrades-grid"></div>
+      </section>
+
+    </main>
+
+    <!-- Navegación Inferior (Tabs) -->
+    <nav id="bottom-nav">
+      <button class="nav-btn active" data-tab="tab-farm">
+        <span class="nav-icon">🌱</span>
+        <span class="nav-label">Granja</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-shop">
+        <span class="nav-icon">🏪</span>
+        <span class="nav-label">Tienda</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-barn">
+        <span class="nav-icon">📦</span>
+        <span class="nav-label">Almacén</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-orders">
+        <span class="nav-icon">📜</span>
+        <span class="nav-label">Pedidos</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-upgrades">
+        <span class="nav-icon">🛠️</span>
+        <span class="nav-label">Mejoras</span>
+      </button>
+    </nav>
+
+    <!-- Notificaciones flotantes / Toast -->
+    <div id="toast-container"></div>
+
+    <!-- Modal Tutorial Inicial -->
+    <div id="modal-tutorial" class="modal">
+      <div class="modal-content">
+        <h3>🌻 ¡Bienvenido a Valle del Sol!</h3>
+        <p>Has heredado una pequeña parcela en el valle. Tu objetivo es hacerla prosperar.</p>
+        <ol class="tutorial-steps">
+          <li><strong>Compra semillas</strong> en la Tienda.</li>
+          <li><strong>Selecciona una semilla</strong> y toca una parcela vacía para sembrarla.</li>
+          <li>¡Usa la <strong>regadera 🚿</strong> para acelerar el crecimiento!</li>
+          <li><strong>Cosecha</strong> tus productos cuando estén listos.</li>
+          <li>Véndelos en el <strong>Almacén</strong> o cumple <strong>Pedidos</strong> para subir de nivel y reputación.</li>
+        </ol>
+        <button id="btn-close-tutorial" class="btn-primary">¡Empezar a Trabajar!</button>
+      </div>
+    </div>
+
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
